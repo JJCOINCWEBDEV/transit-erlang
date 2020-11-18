@@ -28,7 +28,7 @@ read(Obj, Config) ->
 %% Internal Function Definitions
 %% ------------------------------------------------------------------
 
-unpack(Obj, msgpack) -> msgpack:unpack(Obj, [{map_format, jsx}, {unpack_str, as_binary}, {spec, old}]);
+unpack(Obj, msgpack) -> msgpack:unpack(Obj, [{map_format, jsx}, {unpack_str, as_binary}, {spec, new}]);
 unpack(Obj, json) -> {ok, jsx:decode(Obj)};
 unpack(Obj, json_verbose) -> {ok, jsx:decode(Obj)};
 unpack(_Obj, undefined) -> {error, unknown_format}.
